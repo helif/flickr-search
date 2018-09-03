@@ -10,7 +10,7 @@ describe('NavBarDirective', function(){
 
     beforeEach(function() {
         module('mainApp');
-        module('js/directives/NavBarTemplate.html');
+        module('app/js/directives/NavBarTemplate.html');
 
         inject(function($rootScope, $compile) {
             testScope = $rootScope.$new();
@@ -18,12 +18,12 @@ describe('NavBarDirective', function(){
             testScope.list = [];
 
             navBarElement = angular.element('<navbar-directive tags="tags" list="list"></navbar-directive>');
-            $compile(navBarElement)(testScope, testFlickrService);
+            $compile(navBarElement)(testScope);
             testScope.$digest();
         });
+    });
 
-        it('should correctly bind mock data', function(){
-            expect(navBarElement).not.toBe(undefined);
-        });
+    it('should correctly bind mock data', function(){
+        expect(navBarElement).not.toBe(undefined);
     });
 });

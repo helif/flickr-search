@@ -10,9 +10,9 @@ describe('GridDirective', function(){
 
     beforeEach(function() {
         module('mainApp');
-        module('js/directives/GridTemplate.html');
+        module("/app/js/directives/GridTemplate.html");
 
-        inject(function($rootScope, $compile) {
+        inject(function($compile, $rootScope) {
             testScope = $rootScope.$new();
             testScope.tags = "tests";
             testScope.list = [
@@ -22,18 +22,18 @@ describe('GridDirective', function(){
             ];
 
             gridElement = angular.element('<grid-directive tags="tags" list="list"></grid-directive>');
-            $compile(gridElement)(testScope, testFlickrService);
+            $compile(gridElement)(testScope);
             testScope.$digest();
         });
+    });
 
         it('should correctly bind mock data', function(){
             expect(gridElement).not.toBe(undefined);
-    //         expect(gridElement.text()).toContain("T1");
-    //         expect(gridElement.text()).toContain("T2");
-    //         expect(gridElement.text()).toContain("Saturday, 1 September 2018");
-    //         expect(gridElement.text()).toContain("Friday, 31 August 2018");
-    //         expect(gridElement.text()).toContain("No Title");
-    //         expect(gridElement.text()).toContain("Not Available");
+            expect(gridElement.text()).toContain("T1");
+            expect(gridElement.text()).toContain("T2");
+            expect(gridElement.text()).toContain("Saturday, 1 September 2018");
+            expect(gridElement.text()).toContain("Friday, 31 August 2018");
+            expect(gridElement.text()).toContain("No Title");
+            expect(gridElement.text()).toContain("Not Available");
         });
-    });
 });
