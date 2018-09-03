@@ -4,11 +4,10 @@ module.exports = function(config){
     basePath : '../',
 
     preprocessors: {
-      '**/*.html':'ng-html2js'
+      'app/**/*.html':'ng-html2js'
     },
 
     ngHtml2JsPreprocessor: {
-      // stripPrefix: 'app/'
       prependPrefix: '/'
     },
 
@@ -17,8 +16,8 @@ module.exports = function(config){
       'app/lib/angular-*.js',
       'app/lib/underscore.min.js',
       'app/js/**/*.js',
-      'test/tests/**/*.js',
-      'app/**/*.html'
+      'app/**/*.html',
+      'test/tests/**/*.js'
     ],
 
     autoWatch : true,
