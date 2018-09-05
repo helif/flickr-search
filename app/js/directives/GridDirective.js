@@ -43,7 +43,7 @@ angular.module("mainApp").directive('gridDirective', ['flickrService', function(
             return title && title.trim() ? title.trim() : "No Title";
         };
 
-        // formats the image published data
+        // formats the image published date
         $scope.formatDate = function(date){
             if (date) {
                 var newDate = new Date(date);
